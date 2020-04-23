@@ -17,7 +17,7 @@ gwf.target('Maffilter_control_file',
 		   outputs=['../filtered.maf', '../maf_filtering.log'],
 		   cores=1,
     	   memory='10g',
-		   walltime= '08:00:00',
+		   walltime= '12:00:00',
 		   account='Primategenomes') << """
 ./maffilter_controlfile_generation.sh {} {} {} {} {}
 ./coalhmm_paramfile_generation.sh {} {} {} {}
