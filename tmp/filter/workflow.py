@@ -8,22 +8,43 @@ import pickle
 
 gwf = Workflow()
 
+# Load the parameters
 with open('../params.pickle', 'rb') as f:
     [path, species1, species2, species3, species4, target_seqname, big_maf_file] = pickle.load(f)
 
-
-gwf.target('Maffilter_control_file', 
+# Run maf filtering
+gwf.target('Maffilter', 
            inputs=[big_maf_file], 
 		   outputs=['../filtered.maf', '../maf_filtering.log'],
-		   cores=1,
-    	   memory='10g',
-		   walltime= '12:00:00',
+		   cores=4,
+    	   memory='16g',
+		   walltime= '20:00:00',
 		   account='Primategenomes') << """
 ./maffilter_controlfile_generation.sh {} {} {} {} {}
 ./coalhmm_paramfile_generation.sh {} {} {} {}
 ./maffilter param=../control_file
+""".format(big_maf_file, species1, species2, species3, species4, species1, species2, species3, species4)
+
+# Divide alignment in 1Mb regions
+gwf.target('Start_end', 
+           inputs=['../filtered.maf', '../maf_filtering.log'], 
+		   outputs=['../slice_lst.pickle', '../filtered.mafindex'],
+		   cores=4,
+    	   memory='16g',
+		   walltime= '04:00:00',
+		   account='Primategenomes') << """
 python3 start_end.py
-cd ../coalhmm/
+"""
+
+# Run the testing coalHMM runs
+gwf.target('coalHMM_test', 
+           inputs=['../filtered.maf', '../slice_lst.pickle', '../filtered.mafindex'], 
+		   outputs=['../params.file'],
+		   cores=1,
+    	   memory='1g',
+		   walltime= '00:10:00',
+		   account='Primategenomes') << """
+cd ../test_coalhmm/
 gwf config set backend slurm
 gwf run
-""".format(big_maf_file, species1, species2, species3, species4, species1, species2, species3, species4)
+"""

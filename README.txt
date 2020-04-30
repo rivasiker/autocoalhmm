@@ -22,12 +22,21 @@ The workflow steps are executed as follows:
 	2)	autocoalhmm.py calls the filtering workflow, which will
 		a)	filter the maf file: only specified species, merging...
 		b)	compute the mafindex of the filtered maf file.
-		c)	calculate the window breakpoints and save the slicing coordinates.
-	3)	The filtering workflow will finish by executing the coalHMM workflow, which
+		c)	calculate the 1Mb window breakpoints and save the slicing coordinates.
+	3)	The filtering workflow will finish by executing the testing workflow, which
 		will:
-		a)	split the filtered maf file into the 1 Mb slices computed before, and 
-			generate the necessary files for running coalHMM and mapping the result
+		a)	take a sample from the slicing of the filtered maf file (1st, 2nd and 
+			3rd quantile).
+		b)	generate the necessary files for running coalHMM and mapping the result
 			back to the coordinate system. 
-		b) 	run coalHMM for each of the previously calculated slices.
-		c)	save the posterior probabilities into individual HDF5 files. 
-		d)	collect all individual HDF5 files
+		c)	run coalHMM on these three 1Mb regions with default starting params.
+		d)	compute the mean of the estimated params and save them into new param
+			file.
+	3)	The testing workflow will finish by executing the coalHMM workflow, which
+		will:
+		a)	split the filtered maf file into the 1 Mb slices computed before
+		b)	generate the necessary files for running coalHMM and mapping the result
+			back to the coordinate system. 
+		c) 	run coalHMM for each of the previously calculated slices.
+		d)	save the posterior probabilities into individual HDF5 files. 
+		e)	collect all individual HDF5 files.
