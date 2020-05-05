@@ -39,5 +39,8 @@ os.chdir('./tmp/filter/')
 subprocess.call(['gwf', 'config', 'set', 'backend', 'slurm'])
 subprocess.call(['gwf', 'run'])
 
+with open('../../call.txt', 'w') as f:
+    f.write(" ".join(sys.argv))
+
 # Print success
 print('Success!')

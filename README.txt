@@ -40,3 +40,11 @@ The workflow steps are executed as follows:
 		c) 	run coalHMM for each of the previously calculated slices.
 		d)	save the posterior probabilities into individual HDF5 files. 
 		e)	collect all individual HDF5 files.
+
+Depending on whether target_seqname is part of the three species in the trio + outrgoup
+or not, it will behave differently:
+	- If the target is within the other species, then the intermediate info tables and 
+	  the final HDF table will contain the coordinates of those four species. 
+	- If the target is not within the other species, then the intermediate info tables
+	  and the final HDF table will contain the coordinates of all five species. However, 
+	  for the coalHMM run only the trio + outgroup species will be kept. 

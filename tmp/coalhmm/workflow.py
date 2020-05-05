@@ -47,8 +47,8 @@ for run in range(len(slice_lst)):
                 cores=4,
                 memory='4g',
                 walltime= '02:00:00') << """
-    python create_fasta_and_info_table.py {} {} {} {}
-    """.format(run, target_seqname, slice_lst[run][0], slice_lst[run][1])
+    python create_fasta_and_info_table.py {} {} {}
+    """.format(run, slice_lst[run][0], slice_lst[run][1])
 
 
     # Define format of output paths
