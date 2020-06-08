@@ -18,9 +18,9 @@ if is_target:
 	gwf.target('Maffilter', 
 			inputs=[big_maf_file], 
 			outputs=['../filtered.maf', '../maf_filtering.log'],
-			cores=4,
+			cores=8,
 			memory='16g',
-			walltime= '20:00:00',
+			walltime= '12:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation.sh {} {} {} {} {} {}
 	./coalhmm_paramfile_generation.sh {} {} {} {}
@@ -31,9 +31,9 @@ else:
 	gwf.target('Maffilter_2', 
 			inputs=[big_maf_file], 
 			outputs=['../filtered.maf', '../maf_filtering.log'],
-			cores=4,
+			cores=8,
 			memory='16g',
-			walltime= '20:00:00',
+			walltime= '12:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation_2.sh {} {} {} {} {} {}
 	./coalhmm_paramfile_generation.sh {} {} {} {}

@@ -92,9 +92,9 @@ for run in range(len(slice_lst)):
 gwf.target('final_table', 
             inputs=['../results/run_{}.HDF'.format(i) for i in range(len(slice_lst))], 
             outputs=['../../final_table.HDF'],
-            cores=1,
+            cores=4,
             memory='32g',
-            walltime= '08:00:00',
+            walltime= '12:00:00',
             account='Primategenomes') << """
 python create_big_table.py {}
 """.format(target_seqname)

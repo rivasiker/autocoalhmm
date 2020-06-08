@@ -94,7 +94,7 @@ gwf.target('send_coalhmm',
             outputs=['../final_table.HDF'],
             cores=1,
             memory='1g',
-            walltime= '00:20:00') << """
+            walltime= '01:00:00') << """
 cd ../coalhmm/
 gwf config set backend slurm
 gwf run
