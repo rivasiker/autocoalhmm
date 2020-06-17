@@ -8,6 +8,9 @@ alignment into roughly 1 Mb windows and performs coalHMM on them. Finally, it al
 collects all the results and saves them into a user-friendly HDF5 table with the
 coordinates of the maf file. 
 
+IMPORTANT: when cloning the GitHub repo, the permissions for all files need to be
+changed. You can do so by running chmod -R 777 ./
+
 The way autocoalhmm.py is invoked:
 	python autocoalhmm.py sp1 sp2 sp3 sp4 target_seqname maf_path
 Where:
