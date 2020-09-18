@@ -54,9 +54,9 @@ for run in range(len(slice_lst)):
     # Load the info table with the coordinates and the gap information
     info_table = pd.read_csv('../info_tables/run_{}.csv'.format(run))
     df = pd.read_hdf('../results/run_{}.HDF'.format(run))
-    df = df[['Homo_sapiens','V0','V1','V2','V3']]
+    df = df[[target_seqname.split('.')[0],'V0','V1','V2','V3']]
     df = optimize_dataframe(df)
     store.append(key=target_seqname.replace('.', '_'),value=df,
-    format='t',data_columns=['Homo_sapiens'],complevel=9)
+    format='t',data_columns=[target_seqname.split('.')[0]],complevel=9)
 
 store.close()
