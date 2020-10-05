@@ -66,6 +66,7 @@ for run in range(len(slice_lst)):
                 memory='4g', 
                 walltime= '04:00:00',
                 account='Primategenomes') << """
+    export LD_LIBRARY_PATH=.
     ./coalhmm --noninteractive=yes param=../params.file species1={} species2={} species3={} outgroup={} \
     input.sequence.multiparts=yes input.sequence.format=Fasta input.sequence.list={} input.sequence.multiparts.prefix={} \
     input.sequence.multiparts.reset=yes optimization.profiler={}profiler optimization.message_handler={}messages \
