@@ -20,7 +20,7 @@ if is_target:
 			outputs=['../filtered.maf', '../maf_filtering.log'],
 			cores=8,
 			memory='16g',
-			walltime= '12:00:00',
+			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation.sh {} {} {} {} {} {}
 	./coalhmm_paramfile_generation.sh {} {} {} {}
@@ -33,7 +33,7 @@ else:
 			outputs=['../filtered.maf', '../maf_filtering.log'],
 			cores=8,
 			memory='16g',
-			walltime= '12:00:00',
+			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation_2.sh {} {} {} {} {} {}
 	./coalhmm_paramfile_generation.sh {} {} {} {}
