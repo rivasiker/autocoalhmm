@@ -13,6 +13,10 @@ changed. You can do so by running chmod -R 777 ./
 
 The way autocoalhmm.py is invoked:
 	python autocoalhmm.py sp1 sp2 sp3 sp4 target_seqname maf_path
+If the 1-species unclock model needs to be run, then use:
+	python autocoalhmm.py sp1 sp2 sp3 sp4 target_seqname maf_path error_sp1
+If the 2-species unclock model needs to be run, then use:
+	python autocoalhmm.py sp1 sp2 sp3 sp4 target_seqname maf_path error_sp1 error_sp2
 Where:
 	- sp1, sp2 and sp3 are the species of the analyzed branch.
 	- sp4 is the outrgroup species.
