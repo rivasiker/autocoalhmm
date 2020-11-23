@@ -9,8 +9,15 @@ import pickle
 gwf = Workflow()
 
 # Load the parameters
-with open('../params.pickle', 'rb') as f:
-    [path, species1, species2, species3, species4, target_seqname, big_maf_file] = pickle.load(f)
+if len(pickle.load(open('../params.pickle', 'rb'))) == 7:
+    with open('../params.pickle', 'rb') as f:
+        [path, species1, species2, species3, species4, target_seqname, big_maf_file] = pickle.load(f)
+ifelse len(pickle.load(open('../params.pickle', 'rb'))) == 8:
+    with open('../params.pickle', 'rb') as f:
+        [path, species1, species2, species3, species4, target_seqname, big_maf_file, error_sp1] = pickle.load(f)
+ifelse len(pickle.load(open('../params.pickle', 'rb'))) == 9:
+    with open('../params.pickle', 'rb') as f:
+        [path, species1, species2, species3, species4, target_seqname, big_maf_file, error_sp1, error_sp2] = pickle.load(f)
 
 is_target = target_seqname.split('.')[0] in [species1, species2, species3, species4]
 if is_target:
