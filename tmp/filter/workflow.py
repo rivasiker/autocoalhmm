@@ -12,12 +12,18 @@ gwf = Workflow()
 if len(pickle.load(open('../params.pickle', 'rb'))) == 7:
 	with open('../params.pickle', 'rb') as f:
 		[path, species1, species2, species3, species4, target_seqname, big_maf_file] = pickle.load(f)
+	command_create_param_file = './coalhmm_paramfile_generation.sh'
+	error_sp1 = ''
+	error_sp2 = ''
 ifelse len(pickle.load(open('../params.pickle', 'rb'))) == 8:
 	with open('../params.pickle', 'rb') as f:
 		[path, species1, species2, species3, species4, target_seqname, big_maf_file, error_sp1] = pickle.load(f)
+	command_create_param_file = './coalhmm_paramfile_generation_unclock1.sh'
+	error_sp2 = ''
 ifelse len(pickle.load(open('../params.pickle', 'rb'))) == 9:
 	with open('../params.pickle', 'rb') as f:
 		[path, species1, species2, species3, species4, target_seqname, big_maf_file, error_sp1, error_sp2] = pickle.load(f)
+	command_create_param_file = './coalhmm_paramfile_generation_unclock2.sh'
 
 is_target = target_seqname.split('.')[0] in [species1, species2, species3, species4]
 if is_target:
@@ -30,9 +36,9 @@ if is_target:
 			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation.sh {} {} {} {} {} {}
-	./coalhmm_paramfile_generation.sh {} {} {} {}
+	{} {} {} {} {} {} {}
 	./maffilter param=../control_file
-	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], species1, species2, species3, species4)
+	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], command_create_param_file, species1, species2, species3, species4, error_sp1, error_sp2)
 else:
 	# Run maf filtering
 	gwf.target('Maffilter_2', 
@@ -43,9 +49,9 @@ else:
 			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation_2.sh {} {} {} {} {} {}
-	./coalhmm_paramfile_generation.sh {} {} {} {}
+	{} {} {} {} {} {} {}
 	./maffilter param=../control_file
-	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], species1, species2, species3, species4)
+	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], command_create_param_file, species1, species2, species3, species4, error_sp1, error_sp2)
 
 # Divide alignment in 1Mb regions
 gwf.target('Start_end', 
