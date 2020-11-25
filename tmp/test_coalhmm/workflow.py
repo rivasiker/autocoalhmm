@@ -75,6 +75,8 @@ for run in range(len(slice_lst)):
                 walltime= '04:00:00',
                 account='Primategenomes') << """
     export LD_LIBRARY_PATH=.
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/bpp/dev/lib64
+    export LD_LIBRARY_PATH=/home/iker/Programs/anaconda3/lib:$LD_LIBRARY_PATH
     ./coalhmm --noninteractive=yes param=../params_test.file species1={} species2={} species3={} outgroup={} \
     input.sequence.multiparts=yes input.sequence.format=Fasta input.sequence.list={} input.sequence.multiparts.prefix={} \
     input.sequence.multiparts.reset=yes optimization.profiler={}profiler optimization.message_handler={}messages \
