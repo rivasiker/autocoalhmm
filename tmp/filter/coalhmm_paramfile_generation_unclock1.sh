@@ -9,7 +9,7 @@ species3=$3
 species4=$4
 errorsp1=$5
 
-echo "coalmethod=Unclock(species1=$5, error1=0.01, model=ILS(\\" > ../params_test.file
+echo "coalmethod=Unclock(species=$5, error=0.01, model=ILS(\\" > ../params_test.file
 echo "    implementation=09,\\" >> ../params_test.file
 echo "    nbSpecies=3,\\" >> ../params_test.file
 echo "    species1=$1,\\" >> ../params_test.file
