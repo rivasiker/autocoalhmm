@@ -20,10 +20,10 @@ target_seqname = sys.argv[5]
 big_maf_file = '../../'+sys.argv[6]
 param_lst = [path, species1, species2, species3, species4, target_seqname, big_maf_file]
 if len(sys.argv) == 9:
-    params_lst.append(sys.argv[7])
-    params_lst.append(sys.argv[8])
+    param_lst.append(sys.argv[7])
+    param_lst.append(sys.argv[8])
 elif len(sys.argv) == 8:
-    params_lst.append(sys.argv[7])
+    param_lst.append(sys.argv[7])
 
 # If the temporary directory exists
 if os.path.isdir('./tmp/'):
