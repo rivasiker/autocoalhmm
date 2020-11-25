@@ -28,7 +28,7 @@ echo "    tau.min = 0.00001,\\" >> ../params_test.file
 echo "    theta.min = 0.00001,\\" >> ../params_test.file
 echo "    rho.min = 0.0001,\\" >> ../params_test.file
 echo "    rho.max = 1000\\" >> ../params_test.file
-echo "  )" >> ../params_test.file
+echo "  ))" >> ../params_test.file
 
 echo "alphabet=DNA" >> ../params_test.file
 echo "input.sequence.multiparts=yes" >> ../params_test.file
