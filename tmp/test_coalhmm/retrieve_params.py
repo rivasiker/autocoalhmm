@@ -34,17 +34,17 @@ with open('../params_test.file', 'r') as old:
     with open('../params.file', 'w') as new:
         for line in old:
             if 'tau1=0.001' in line:
-                new.write(line.replace('tau1=0.001', 'tau1={}'.format(sum(dct['tau1'])/3)))
+                new.write(line.replace('tau1=0.001', 'tau1={}'.format(round(sum(dct['tau1'])/3, 4))))
             elif 'tau2=0.001' in line:
-                new.write(line.replace('tau2=0.001', 'tau2={}'.format(sum(dct['tau2'])/3)))
+                new.write(line.replace('tau2=0.001', 'tau2={}'.format(round(sum(dct['tau2'])/3, 4))))
             elif 'c2=0.03' in line:
-                new.write(line.replace('c2=0.03', 'c2={}'.format(sum(dct['c2'])/3)))
+                new.write(line.replace('c2=0.03', 'c2={}'.format(round(sum(dct['c2'])/3, 4))))
             elif 'theta1=0.001' in line:
-                new.write(line.replace('theta1=0.001', 'theta1={}'.format(sum(dct['theta1'])/3)))
+                new.write(line.replace('theta1=0.001', 'theta1={}'.format(round(sum(dct['theta1'])/3, 4))))
             elif 'theta2=0.001' in line:
-                new.write(line.replace('theta2=0.001', 'theta2={}'.format(sum(dct['theta2'])/3)))
+                new.write(line.replace('theta2=0.001', 'theta2={}'.format(round(sum(dct['theta2'])/3, 4))))
             elif 'rho=0.5' in line:
-                new.write(line.replace('rho=0.5', 'rho={}'.format(sum(dct['rho'])/3)))
+                new.write(line.replace('rho=0.5', 'rho={}'.format(round(sum(dct['rho'])/3, 4))))
             else:
                 new.write(line)
 
