@@ -72,7 +72,7 @@ for run in range(len(slice_lst)):
                 outputs=results,
                 cores=4, 
                 memory='4g', 
-                walltime= '04:00:00',
+                walltime= '06:00:00',
                 account='Primategenomes') << """
     export LD_LIBRARY_PATH=.
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/bpp/dev/lib64
