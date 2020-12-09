@@ -25,8 +25,8 @@ for i in [0, 1, 2]:
                 dct['GTR_d'].append(float(tree[8:]))
             elif 'GTR.e' in tree:
                 dct['GTR_e'].append(float(tree[8:]))
-            elif 'GTR.theta' in tree:
-                dct['GTR_theta'].append(float(tree[11:]))
+            elif 'GTR.theta ' in tree:
+                dct['GTR_theta'].append(float(tree[13:]))
             elif 'GTR.theta1' in tree:
                 dct['GTR_theta1'].append(float(tree[12:]))
             elif 'GTR.theta2' in tree:
