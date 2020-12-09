@@ -50,5 +50,6 @@ echo "optimization.tolerance=0.0001" >> ../params_test.file
 echo "optimization.max_number_f_eval=1000000" >> ../params_test.file
 echo "optimization.max_number_iterations=2000" >> ../params_test.file
 echo "optimization.pre=yes" >> ../params_test.file
+echo "optimization.ignore_parameter=GTR.a,GTR.b,GTR.c,GTR.d,GTR.e,GTR.theta,GTR.theta1,GTR.theta2" >> ../params_test.file
 echo "optimization.final=no" >> ../params_test.file
 
