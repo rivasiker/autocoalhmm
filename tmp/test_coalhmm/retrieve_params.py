@@ -11,7 +11,7 @@ import sys
 import pickle
 
 # Collect parameters
-dct = {'tau1':[], 'tau2':[], 'theta1':[], 'theta2':[], 'c2':[], 'rho':[], 'GTR_a':[], 'GTR_b':[], 'GTR_c':[], 'GTR_d':[], 'GTR_e':[], 'GTR_theta':[], 'GTR_theta1':[], 'GTR_theta2':[], 'GTR_alpha'}
+dct = {'tau1':[], 'tau2':[], 'theta1':[], 'theta2':[], 'c2':[], 'rho':[], 'GTR_a':[], 'GTR_b':[], 'GTR_c':[], 'GTR_d':[], 'GTR_e':[], 'GTR_theta':[], 'GTR_theta1':[], 'GTR_theta2':[], 'GTR_alpha':[]}
 for i in [0, 1, 2]:
     with open('../outputs_test/run_{}/estimates'.format(i), 'r') as new:
         for tree in new:
