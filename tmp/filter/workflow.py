@@ -30,32 +30,32 @@ if is_target:
 	# Run maf filtering
 	gwf.target('Maffilter', 
 			inputs=[big_maf_file], 
-			outputs=['../filtered.maf', '../maf_filtering.log'],
+			outputs=['../filtered.maf'],
 			cores=8,
 			memory='16g',
 			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation.sh {} {} {} {} {} {}
 	{} {} {} {} {} {} {}
-	./maffilter param=../control_file
+	./maffilter param=../control_file > /dev/null
 	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], command_create_param_file, species1, species2, species3, species4, error_sp1, error_sp2)
 else:
 	# Run maf filtering
 	gwf.target('Maffilter_2', 
 			inputs=[big_maf_file], 
-			outputs=['../filtered.maf', '../maf_filtering.log'],
+			outputs=['../filtered.maf'],
 			cores=8,
 			memory='16g',
 			walltime= '24:00:00',
 			account='Primategenomes') << """
 	./maffilter_controlfile_generation_2.sh {} {} {} {} {} {}
 	{} {} {} {} {} {} {}
-	./maffilter param=../control_file
+	./maffilter param=../control_file > /dev/null
 	""".format(big_maf_file, species1, species2, species3, species4, target_seqname.split('.')[0], command_create_param_file, species1, species2, species3, species4, error_sp1, error_sp2)
 
 # Divide alignment in 1Mb regions
 gwf.target('Start_end', 
-           inputs=['../filtered.maf', '../maf_filtering.log'], 
+           inputs=['../filtered.maf'], 
 		   outputs=['../slice_lst.pickle', '../filtered.mafindex'],
 		   cores=4,
     	   memory='16g',
