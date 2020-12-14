@@ -101,7 +101,7 @@ python retrieve_params.py
 
 gwf.target('send_coalhmm', 
             inputs=['../params.file'], 
-            outputs=['../final_table.HDF'],
+            outputs=['../../final_table.HDF'],
             cores=1,
             memory='1g',
             walltime= '01:00:00') << """
