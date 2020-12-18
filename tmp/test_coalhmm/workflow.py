@@ -34,7 +34,7 @@ if not os.path.isdir('../outputs_test'):
 
 
 # For each slice of the maffilter
-for run in range(len(slice_lst)):
+for run in [0, 1, 2]:
     
     if not os.path.isdir('../inputs_test/run_{}'.format(run)):
         # Create temporary directory with coalHMM run index
