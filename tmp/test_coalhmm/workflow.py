@@ -54,7 +54,8 @@ for run in [0, 1, 2]:
                 outputs=outputs_test,
                 cores=4,
                 memory='4g',
-                walltime= '02:00:00') << """
+                walltime= '02:00:00',
+	        account='Primategenomes') << """
     python create_fasta_and_info_table.py {} {} {}
     """.format(run, slice_lst[run][0], slice_lst[run][1])
 
@@ -95,7 +96,8 @@ gwf.target('new_params',
             outputs=['../params.file'],
             cores=1,
             memory='4g',
-            walltime= '00:10:00') << """
+            walltime= '00:10:00',
+	    account='Primategenomes') << """
 python retrieve_params.py
 """
 
@@ -104,7 +106,8 @@ gwf.target('send_coalhmm',
             outputs=['../../final_table.HDF'],
             cores=1,
             memory='1g',
-            walltime= '01:00:00') << """
+            walltime= '01:00:00',
+	    account='Primategenomes') << """
 cd ../coalhmm/
 gwf config set backend slurm
 gwf run
