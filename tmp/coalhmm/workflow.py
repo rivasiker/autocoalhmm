@@ -53,7 +53,8 @@ for run in range(len(slice_lst)):
                 outputs=outputs,
                 cores=4,
                 memory='4g',
-                walltime= '02:00:00') << """
+                walltime= '02:00:00',
+	        account='Primategenomes') << """
     python create_fasta_and_info_table.py {} {} {}
     """.format(run, slice_lst[run][0], slice_lst[run][1])
 
