@@ -104,9 +104,9 @@ python retrieve_params.py
 gwf.target('send_coalhmm', 
             inputs=['../params.file'], 
             outputs=['../../final_table.HDF'],
-            cores=1,
-            memory='1g',
-            walltime= '01:00:00',
+            cores=4,
+            memory='4g',
+            walltime= '04:00:00',
 	    account='Primategenomes') << """
 cd ../coalhmm/
 gwf config set backend slurm
