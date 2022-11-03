@@ -1,5 +1,7 @@
 # autoCoalHMM
 
+[![DOI](https://zenodo.org/badge/254589955.svg)](https://zenodo.org/badge/latestdoi/254589955)
+
 This script can be used to run coalHMM given a specific set of arguments. It performs
 the filtering of the input maf file, such that a temporary filtered maf file is
 generated. This filtered maf file will only contain those species that were specified
