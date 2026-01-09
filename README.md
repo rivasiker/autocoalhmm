@@ -1,3 +1,7 @@
+**:warning: WARNING! :warning:**
+
+autocoalhmm is a wrapper around coalHMM. The original coalHMM algorithm has since been extended into TRAILS (see [https://doi.org/10.1371/journal.pgen.1010836](https://doi.org/10.1371/journal.pgen.1010836)), which now has a more efficient and user-friendly implementation called iTRAILS. If you are interested in running this method, iTRAILS can be installed by following the instructions at [https://github.com/trails-phylogeny/itrails](https://github.com/trails-phylogeny/itrails), with comprehensive, step-by-step documentation available at [https://itrails.readthedocs.io/en/docs-stable/](https://itrails.readthedocs.io/en/docs-stable/). Unless you have a strong reason to use the original autocoalhmm pipeline (or coalHMM), **we strongly recommend using iTRAILS instead**.
+
 # autoCoalHMM
 
 [![DOI](https://zenodo.org/badge/254589955.svg)](https://zenodo.org/badge/latestdoi/254589955)
